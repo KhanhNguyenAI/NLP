@@ -89,3 +89,22 @@ if word_vectors:
     print("Vector của văn bản:", text_vector)
 else:
     print("Không có từ nào trong mô hình Word2Vec.")
+####### cosine_similarity 
+text1 = 'machine learning have greatly processing'
+text2 = "machine learning have greatly improved"
+
+# Kết hợp các vector từ - ở đây sử dụng trung bình cộng
+def vector(text): 
+    words = simple_preprocess(text)
+    word_vectors = [model.wv[word] for word in words if word in model.wv]
+    if word_vectors:
+        text_vector = np.mean(word_vectors, axis=0)
+        # print("Vector của văn bản:", text_vector)
+        return text_vector
+    else : 
+        return ("Không có từ nào trong mô hình Word2Vec.")
+text_vector1 = vector(text1)
+text_vector2 = vector(text2)
+similarity = cosine_similarity([text_vector1], [text_vector2])[0][0]
+print(f"Cosine Similarity giữa hai câu: {similarity:.4f}")
+
