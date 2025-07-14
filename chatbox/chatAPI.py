@@ -1,7 +1,7 @@
 import openai
 from dotenv import  load_dotenv
 load_dotenv() # khoi tao model
-api_key = 'AIzaSyDj-LEe_g3CrIX_AbPLY-IHVjIa0et3VxE'
+api_key = '?'
 class openAPI(): 
     def __init__(self,model_name='gpt-4.1-nano'):
         super().__init__()
